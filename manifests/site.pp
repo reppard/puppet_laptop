@@ -1,5 +1,6 @@
 node default {
-  #include people::reppard
+  include people::reppard
+  include nodejs
 
   package {
     [
