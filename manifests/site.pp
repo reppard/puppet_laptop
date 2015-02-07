@@ -1,26 +1,24 @@
 node default {
   include people::reppard
-  include 'golang'
+  include golang
 
-  class { 'nodejs':
-  }
-
-  package { 'steroids':
-    provider => 'npm',
-    require  => Class['nodejs'],
-  }
-
-  class { 'rbenv':
-    latest => true
-  }
+  class { 'packer': install_dir => '/usr/local/bin', version => '0.7.5' }
+  class { 'rbenv': latest => true }
+  rbenv::plugin { 'sstephenson/ruby-build': }
+  rbenv::build { '2.1.2': global => true }
 
   class { 'docker':
     tcp_bind    => 'tcp://0.0.0.0:4243',
     socket_bind => 'unix:///var/run/docker.sock',
   }
 
-  rbenv::plugin { 'sstephenson/ruby-build': }
-  rbenv::build { '2.1.2': global => true }
+  class { 'nodejs': }
+
+  package { 'steroids':
+    ensure   => absent,
+    provider => 'npm',
+    require  => Class['nodejs'],
+  }
 
   package {
     [
