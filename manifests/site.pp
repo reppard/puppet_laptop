@@ -1,6 +1,13 @@
 node default {
   include people::reppard
-  include nodejs
+
+  class { 'nodejs':
+  }
+
+  package { 'steroids':
+    provider => 'npm',
+    require  => Class['nodejs'],
+  }
 
   package {
     [
