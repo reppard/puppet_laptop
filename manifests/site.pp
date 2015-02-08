@@ -1,6 +1,9 @@
 node default {
-  include people::reppard
   include golang
+
+  class { 'people':
+    user   => reppard,
+  }
 
   class { 'packer':  install_dir => '/usr/local/bin', version => '0.7.5' }
   class { 'rbenv':   latest => true }
