@@ -2,12 +2,12 @@ node default {
   include golang
   include google_chrome
 
-  class { 'people': user   => reppard }
   class { 'packer': install_dir => '/usr/local/bin', version => '0.7.5' }
+  class { 'people': user   => reppard }
   class { 'rbenv':  latest => true }
   class { 'vagrant': }
   class { 'nodejs':
-    version      => 'v0.10.36',
+    version      => 'v0.12.0',
     make_install => false,
   }
   class { 'docker':
@@ -29,6 +29,8 @@ node default {
       'findutils',
       'tar',
       'tmux',
+      'openssh-server',
+      'tig'
     ]:
   }
 }
