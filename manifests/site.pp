@@ -7,7 +7,7 @@ node default {
   class { 'rbenv':  latest => true }
   class { 'vagrant': }
   class { 'nodejs':
-    version      => 'v0.12.0',
+    version      => 'v0.12.2',
     make_install => false,
   }
   class { 'docker':
