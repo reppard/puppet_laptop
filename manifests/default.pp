@@ -36,10 +36,40 @@ node default {
       'findutils',
       'gimp',
       'htop',
+      'inkscape',
       'openssh-server',
+      'steam',
       'tar',
       'tig',
       'tmux',
+      'VirtualBox',
+      'vlc',
+    ]:
+  }
+
+  # Multimedia deps
+  package {
+    [
+     'gstreamer-plugins-bad',
+     'gstreamer-plugins-bad-free-extras',
+     'gstreamer-plugins-bad-nonfree',
+     'gstreamer-plugins-ugly',
+     'gstreamer-ffmpeg',
+     'libdvdread',
+     'libdvdnav',
+     'lsdvd',
+     'mplayer',
+     'mencoder',
+     'gstreamer1',
+     'gstreamer1-libav',
+     'gstreamer1-plugins-bad-free-extras',
+     'gstreamer1-plugins-bad-freeworld',
+     'gstreamer1-plugins-base-tools',
+     'gstreamer1-plugins-good-extras',
+     'gstreamer1-plugins-ugly',
+     'gstreamer1-plugins-bad-free',
+     'gstreamer1-plugins-good',
+     'gstreamer1-plugins-base',
     ]:
   }
 }
